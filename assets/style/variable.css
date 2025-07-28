@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* Root variables */
+:root {
+  /* Colors */
+  --color-primary: #227cd0;
+  --color-primary-9d: #185d9d;
+  --color-primary-dc: #599cdb;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-black-e6: #e6e6e6;
+  --color-black-40: #404040;
+  --color-black-80: #808080;
+  --color-black-bf: #bfbfbf;
+
+  --color-bg: #f4f6fa;
+  --color-green: #a2d729;
+
+  /* Fonts */
+  --font-primary: "Inter", sans-serif;
+
+  /* Font sizes */
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-20: 20px;
+
+  /* Line Height */
+  --line-height-16: 16px;
+  --line-height-18: 18px;
+  --line-height-20: 20px;
+  --line-height-24: 24px;
+
+  /* Font weight */
+  --fw-400: 400;
+  --fw-600: 600;
+  --fw-700: 700;
+
+  /* Break Points */
+  --sm: 575px;
+  --md: 767px;
+  --lg: 991px;
+  --xl: 1199px;
+}

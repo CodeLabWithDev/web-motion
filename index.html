@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A modern web page featuring tabs, dropdowns, time tracker, and responsive design built with custom CSS and JavaScript."
+    />
+    <title>WebMotion</title>
+    <base href="https://codelabwithdev.github.io/web-motion/" />
+    <link rel="stylesheet" href="/web-motion/assets/style/variable.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/global.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/header.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/email-popup.css" />
+    <link
+      rel="stylesheet"
+      href="/web-motion/assets/style/notification-popup.css"
+    />
+    <link rel="stylesheet" href="/web-motion/assets/style/user-settings.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/ribbon-menu.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/breadcrumb.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/card.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/drop-down.css" />
+    <link rel="stylesheet" href="/web-motion/assets/style/tab.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-left">
+        <div class="menu-toggle" id="menuToggle">
+          <img src="/web-motion/assets/images/icons/menu.svg" alt="Menu icon" />
+          <p class="menu-label">Menu</p>
+        </div>
+        <div class="quick-actions">
+          <button class="action-btn refresh-btn" id="refreshIcon">
+            <img
+              src="/web-motion/assets/images/icons/Auto Save.svg"
+              alt="Refresh icon"
+            />
+          </button>
+          <div class="email-menu">
+            <button class="email-btn" id="emailIcon">
+              <img
+                src="/web-motion/assets/images/icons/email-1.svg"
+                alt="Mail icon"
+              />
+            </button>
+
+            <div class="email-popup" id="emailPopup">
+              <div class="popup-arrow"></div>
+              <!-- arrow -->
+
+              <div class="email-popup-header">Emails</div>
+              <div class="email-popup-content scrollable">
+                <ul class="email-list" id="emailList"></ul>
+              </div>
+              <div class="email-popup-footer">
+                <button class="show-all-btn">Show All</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <p class="header-title">Web Motion</p>
+      </div>
+
+      <div class="header-right">
+        <div class="user-menu" id="userBlock">
+          <div class="user-summary">
+            <span class="user-name">Davide Worner</span>
+            <span class="user-name small">D</span>
+          </div>
+          <div class="dropdown user-dropdown" id="userDropdown">
+            <ul class="dropdown-list">
+              <li class="dropdown-item"><a href="#">Profile</a></li>
+              <li class="dropdown-item"><a href="#">Settings</a></li>
+              <li class="dropdown-item"><a href="#">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="notification-menu">
+          <button class="notification-btn" id="notificationIcon">
+            <img
+              src="/web-motion/assets/images/icons/Notification.svg"
+              alt="Notification icon"
+            />
+            <span class="notification-dot"></span>
+          </button>
+
+          <div class="notification-popup" id="notificationPopup">
+            <div class="popup-arrow"></div>
+            <div class="notification-popup-header">Notifications</div>
+            <div class="notification-popup-content scrollable">
+              <ul class="notification-list" id="notificationList"></ul>
+            </div>
+            <div class="notification-popup-footer">
+              <button class="show-all-btn">Show All</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main container / content -->
+    <main class="main-container" id="mainContainer">
+      <!-- Menu's -->
+      <nav class="ribbon-menu" id="ribbonMenu">
+        <ul class="ribbon-list">
+          <li class="ribbon-item active">
+            <a href="/web-motion/index.html">Dashboard</a>
+          </li>
+          <li class="ribbon-item">
+            <a href="/web-motion/projects/index.html">Projects</a>
+          </li>
+          <li class="ribbon-item"><a href="#">Reports</a></li>
+          <li class="ribbon-item"><a href="#">Analytics</a></li>
+          <li class="ribbon-item"><a href="#">Help</a></li>
+        </ul>
+      </nav>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <ul class="breadcrumb-list">
+          <li class="breadcrumb-item">
+            <a href="/web-motion/index.html">
+              <img
+                src="/web-motion/assets/images/icons/home.svg"
+                alt="Home"
+                class="breadcrumb-icon"
+              />
+            </a>
+          </li>
+          <li class="breadcrumb-separator">></li>
+          <li class="breadcrumb-item">Dashboard</li>
+        </ul>
+      </div>
+
+      <!-- Your actual page content -->
+      <div class="main">
+        <div class="content-grid">
+          <!-- Left card -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-photo">
+                <img
+                  src="/web-motion/assets/images/Avatar.svg"
+                  alt="Liam Walker"
+                  class="profile-image"
+                />
+                <div class="card-buttons">
+                  <button class="btn-primary" id="startTimer">
+                    Start Timer
+                  </button>
+                  <div class="card-actions">
+                    <button id="actionToggle" class="btn-action actionToggle">
+                      <img
+                        src="/web-motion/assets/images/icons/Option.svg"
+                        alt="options"
+                      />
+                    </button>
+                    <div id="actionMenu" class="action-menu">
+                      <div class="popup-arrow"></div>
+                      <ul>
+                        <li><button>Add</button></li>
+                        <li><button>Edit</button></li>
+                        <li><button>Delete</button></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-info">
+                <div class="card-top">
+                  <div class="card-text">
+                    <span class="card-title">Liam Walker</span>
+                    <span class="card-name-tag tag">31 Years</span>
+                  </div>
+
+                  <div class="card-buttons">
+                    <button id="startTimerBtn" class="btn-primary">
+                      Start Timer
+                    </button>
+                    <button
+                      id="stopTimerBtn"
+                      class="btn-primary"
+                      style="display: none"
+                    >
+                      Stop Timer
+                    </button>
+
+                    <div class="card-actions">
+                      <button id="actionToggle" class="btn-action actionToggle">
+                        <img
+                          src="/web-motion/assets/images/icons/Option.svg"
+                          alt="options"
+                        />
+                      </button>
+                      <div id="actionMenu" class="action-menu">
+                        <div class="popup-arrow"></div>
+                        <ul>
+                          <li><button>Add</button></li>
+                          <li><button>Edit</button></li>
+                          <li><button>Delete</button></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-detail">
+                  <span class="card-key">Lorem Ipsum:</span>
+                  <span class="card-value">Lorem Ipsum</span>
+                </div>
+              </div>
+            </div>
+
+            <hr />
+
+            <div class="card-list">
+              <div class="card-list-item">
+                <p>Lorem Ipsum:</p>
+                <span> Dolor Sit Amet </span>
+              </div>
+              <div class="card-list-item">
+                <p>Lorem Ipsum:</p>
+                <span> Dolor Sit Amet </span>
+              </div>
+              <div class="card-list-item">
+                <p>Lorem Ipsum:</p>
+                <span> Dolor Sit Amet </span>
+              </div>
+            </div>
+
+            <hr class="card-divider" />
+
+            <div class="card-contect-actions">
+              <a href="SMS:+91123-456-7890" class="action-btn">
+                <img
+                  src="/web-motion/assets/images/icons/Chat.svg"
+                  alt="options"
+                />
+                Chat
+              </a>
+              <a href="mailto:someone@example.com" class="action-btn">
+                <img
+                  src="/web-motion/assets/images/icons/email.svg"
+                  alt="options"
+                />
+                eMail</a
+              >
+              <a href="https://wa.me/+918758019206" class="action-btn">
+                <img
+                  src="/web-motion/assets/images/icons/WhatsApp.svg"
+                  alt="options"
+                />
+                WhatsApp</a
+              >
+              <a href="tel:+1112223330" class="action-btn">
+                <img
+                  src="/web-motion/assets/images/icons/telephone.svg"
+                  alt="options"
+                />
+                Call</a
+              >
+            </div>
+
+            <hr class="card-divider" />
+
+            <div class="card-section-title">
+              <img
+                src="/web-motion/assets/images/icons/Case.svg"
+                alt="Icon"
+                class="section-icon"
+              />
+              Lorem Ipsum
+            </div>
+
+            <hr class="card-divider" />
+
+            <div class="card-details">
+              <div class="card-first-item">
+                <div class="card-column">
+                  <p>Lorem Ipsum</p>
+                  <span>LW-SC190-0020</span>
+                </div>
+
+                <div class="success-tag">Submitted</div>
+              </div>
+
+              <div class="card-column">
+                <p>Lorem Ipsum</p>
+                <span>Skill Shortage (Skill Assessment)</span>
+              </div>
+              <div class="card-columns">
+                <div class="card-column">
+                  <p>Source</p>
+                  <span>Dolor Sit Amet</span>
+                </div>
+                <div class="card-column">
+                  <p>Opened</p>
+                  <span>Dolor Sit Amet</span>
+                </div>
+                <div class="card-column">
+                  <p>Submitted</p>
+                  <span>Dolor Sit Amet</span>
+                </div>
+                <div class="card-column">
+                  <p>Approved</p>
+                  <span>-</span>
+                </div>
+              </div>
+              <div class="card-column">
+                <p>Submitted</p>
+                <div class="users-tags">
+                  <span class="user-tag tag">Ethan Roberts</span>
+                  <span class="user-tag tag">Emily Thompson</span>
+                  <span class="user-tag tag">Lucas Bennett</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div class="content-right">
+            <!-- Dropdowns -->
+            <div class="dropdown-row">
+              <div class="custom-dropdown primary">
+                <button class="custom-dropdown-toggle">
+                  Lorem Ipsum
+                  <span class="arrow">&#9662;</span>
+                </button>
+                <ul class="custom-dropdown-menu">
+                  <li class="custom-dropdown-item">
+                    <a href="#">In process</a>
+                  </li>
+                  <li class="custom-dropdown-item">
+                    <a href="#">Completed</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="custom-dropdown primary-dark">
+                <button class="custom-dropdown-toggle">
+                  Lorem Ipsum
+                  <span class="arrow">&#9662;</span>
+                </button>
+                <ul class="custom-dropdown-menu">
+                  <li class="custom-dropdown-item">
+                    <a href="#">In process</a>
+                  </li>
+                  <li class="custom-dropdown-item">
+                    <a href="#">Completed</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="custom-dropdown primary-light">
+                <button class="custom-dropdown-toggle">
+                  Lorem Ipsum
+                  <span class="arrow">&#9662;</span>
+                </button>
+                <ul class="custom-dropdown-menu">
+                  <li class="custom-dropdown-item">
+                    <a href="#">In process</a>
+                  </li>
+                  <li class="custom-dropdown-item">
+                    <a href="#">Completed</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="custom-dropdown white">
+                <button class="custom-dropdown-toggle">
+                  Lorem Ipsum
+                  <span class="arrow">&#9662;</span>
+                </button>
+                <ul class="custom-dropdown-menu">
+                  <li class="custom-dropdown-item">
+                    <a href="#">In process</a>
+                  </li>
+                  <li class="custom-dropdown-item">
+                    <a href="#">Completed</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="custom-dropdown white">
+                <button class="custom-dropdown-toggle">
+                  Lorem Ipsum
+                  <span class="arrow">&#9662;</span>
+                </button>
+                <ul class="custom-dropdown-menu">
+                  <li class="custom-dropdown-item">
+                    <a href="#">In process</a>
+                  </li>
+                  <li class="custom-dropdown-item">
+                    <a href="#">Completed</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="custom-dropdown disabled">
+                <button class="custom-dropdown-toggle">
+                  Lorem Ipsum <span class="arrow">&#9662;</span>
+                </button>
+                <ul class="custom-dropdown-menu">
+                  <li class="custom-dropdown-item">
+                    <a href="#">In process</a>
+                  </li>
+                  <li class="custom-dropdown-item">
+                    <a href="#">Completed</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab content -->
+            <div class="tabs-section">
+              <nav class="nav-tabs">
+                <ul class="tab-list">
+                  <li class="tab-item active" data-tab="tab1">Tab 1</li>
+                  <li class="tab-item" data-tab="tab2">Tab 2</li>
+                  <li class="tab-item" data-tab="tab3">Tab 3</li>
+                  <li class="tab-item" data-tab="tab4">Tab 4</li>
+                  <li class="tab-item" data-tab="tab5">Tab 5</li>
+                  <li class="tab-item" data-tab="tab6">Tab 6</li>
+                </ul>
+              </nav>
+
+              <div class="tab-content scrollable">
+                <div class="tab-pane active" id="tab1">
+                  <div class="tab-title primary">Lorem Ipsum</div>
+                  <hr />
+                  <div class="tab-title black">Lorem Ipsum</div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Simply dummy text</p>
+                      <span>-</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Dummy text</p>
+                      <span>-</span>
+                    </div>
+                  </div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                  </div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                  </div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>
+                        <img
+                          src="/web-motion/assets/images/icons/flag.svg"
+                          alt="flag icon"
+                          class="flag-icon"
+                        />
+                        Simply dummy text
+                      </span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                  </div>
+
+                  <div class="tab-title black mt-48">Lorem Ipsum</div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Simply dummy text</p>
+                      <span>-</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Dummy text</p>
+                      <span>-</span>
+                    </div>
+                  </div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                  </div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                  </div>
+                  <div class="tab-grid">
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>
+                        <img
+                          src="/web-motion/assets/images/icons/flag.svg"
+                          alt="flag icon"
+                          class="flag-icon"
+                        />
+                        Simply dummy text
+                      </span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                    <div class="grid-column">
+                      <p>Lorem Ipsum</p>
+                      <span>Simply dummy text</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="tab2">
+                  <p>Content for Tab 2</p>
+                </div>
+                <div class="tab-pane" id="tab3">
+                  <p>Content for Tab 3</p>
+                </div>
+                <div class="tab-pane" id="tab4">
+                  <p>Content for Tab 4</p>
+                </div>
+                <div class="tab-pane" id="tab5">
+                  <p>Content for Tab 5</p>
+                </div>
+                <div class="tab-pane" id="tab6">
+                  <p>Content for Tab 6</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/web-motion/assets/js/reload.js"></script>
+    <script src="/web-motion/assets/js/utility.js"></script>
+    <script src="/web-motion/assets/js/email.js"></script>
+    <script src="/web-motion/assets/js/notification.js"></script>
+    <script src="/web-motion/assets/js/userSettings.js"></script>
+    <script src="/web-motion/assets/js/ribbonMenu.js"></script>
+    <script src="/web-motion/assets/js/cardSetting.js"></script>
+    <script src="/web-motion/assets/js/dropdown.js"></script>
+    <script src="/web-motion/assets/js/tab.js"></script>
+    <script src="/web-motion/assets/js/timer.js"></script>
+  </body>
+</html>

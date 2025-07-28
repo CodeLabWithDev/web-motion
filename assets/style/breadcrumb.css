@@ -1,0 +1,78 @@
+.breadcrumb {
+  width: 100%;
+  background-color: var(--color-white);
+  padding: 8px 28px;
+  font-size: var(--fs-12);
+  line-height: var(--line-height-16);
+  font-weight: var(--fw-700);
+  color: var(--color-black-40);
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap; /* allow wrap on small screens */
+  gap: 12px;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* Anchor styling */
+.breadcrumb-item a {
+  text-decoration: none;
+  color: var(--color-black-40);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-item a:hover {
+  color: var(--color-black);
+}
+
+/* Active item */
+.breadcrumb-item.active {
+  color: var(--color-primary);
+}
+
+/* If active item is also an <a> */
+.breadcrumb-item.active a {
+  color: var(--color-primary);
+  pointer-events: none; /* optional: disable click */
+}
+
+.breadcrumb-item .breadcrumb-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.breadcrumb-separator {
+  color: var(--color-black);
+  font-size: var(--fs-14);
+}
+
+/* Responsive: smaller padding and font on very small screens */
+@media (max-width: var(--md)) {
+  .breadcrumb {
+    padding: 6px 16px;
+    font-size: var(--fs-12);
+  }
+
+  .breadcrumb-item {
+    font-size: var(--fs-12);
+  }
+
+  .breadcrumb-item a {
+    font-size: var(--fs-12);
+  }
+
+  .breadcrumb-item .breadcrumb-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
