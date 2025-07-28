@@ -21,7 +21,7 @@
 .scrollable::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
   border-radius: 10px;
-  background-image: url("/assets/images/icons/scroll-huddle.svg");
+  background-image: url("/web-motion/assets/images/icons/scroll-huddle.svg");
   background-size: 6px 60%;
   background-repeat: no-repeat;
   background-position: center;
